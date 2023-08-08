@@ -1,0 +1,121 @@
+ion-grid.main-grid {
+  height: 100%;
+}
+
+ion-grid.detail-head {
+  height: 30%;
+}
+
+ion-row.detail-name, ion-row.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-row.detail-name {
+  height: 30%;
+}
+
+ion-row.pictureGuard{
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-imgs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 150px;
+  position: relative;
+}
+
+ion-img.back-img{
+  width: 13.3vh;
+  height: 99%;
+  margin-top: 3%;
+  margin-left: 2%;
+  mask-image: url(../../assets/img/corona_dentro.png);
+  mask-size: 100% 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+ion-img.frame{
+  bottom: -10px;
+  width: 25vh;
+  height: 125%;
+  z-index: 100;
+  position: absolute;
+}
+
+ion-grid.info-grid, ion-grid.input-data {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2%;
+}
+
+ion-grid.input-data {
+  width: 80%;
+  margin-bottom: 2%;
+  background-color: white;
+  border: 0.1px solid rgb(189, 189, 189);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+ion-row.input, ion-row.map, ion-row.spinner, ion-row.checkb, ion-row.request {
+  height:30px;
+  width:92%;
+  margin-top:5%;
+}
+
+ion-row.input {
+  height:70px;
+}
+
+.input ion-item{
+  border-radius: 2px ;
+    --border-color: #3a75af;
+      --ion-background-color: #e1e1e1;
+      width: 100%;
+}
+
+.email-input{
+  width: 100%;
+}
+
+.lbl{
+  margin-bottom: 1%;
+}
+
+.error{
+  font-family:'LemonMilkLightItalic';
+  font-size: 0.7rem;
+}
+
+ion-row.dat-btng{
+  margin-top: 3%;
+}
+
+ion-row.dat-btnw{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2%;
+}
+
+ion-row.dat-btnr{
+  margin-top: 2%;
+}
+
+ion-img.edit{
+  position: absolute;
+  width: 40px;
+  right: 9px;
+  bottom: -5px;
+  z-index: 100;
+}

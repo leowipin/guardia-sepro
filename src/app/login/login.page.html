@@ -1,0 +1,63 @@
+<ion-content class="ion-no-padding background">
+
+  <ion-row class="row logo">
+    <div class="container-img">
+      <img src="../../assets/app sepro vectores-30.png" class="img-logo">
+    </div>
+  </ion-row>
+
+  <div class="datosinput item-background-color">
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" validate>
+
+      <ion-list class="datos m-0 p-0">
+
+
+        <div class="itemdatos">
+          <div class="field">
+            <div class="align-text light-italic12">C O R R E O</div>
+            <ion-item class="credentials">
+              <ion-input  class="input-text medium12" formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <div *ngIf="ionicForm.get('email').invalid && (ionicForm.get('email').dirty || ionicForm.get('email').touched)" class="error-message">
+              <span class="error ion-padding regular12" *ngIf="ionicForm.get('email').hasError('required')">Ingrese un correo electrónico</span>
+              <span class="error ion-padding regular12" *ngIf="ionicForm.get('email').hasError('pattern')">Ingrese un correo eletrónico válido</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="align-text light-italic12">C O N T R A S E Ñ A</div>
+            <ion-item>
+              <div class="eye-wrapper">
+                <button class="btn-eye" type="button" (click)="togglePasswordClick()">
+                  <ion-icon [hidden]="showPassword" name="eye-off-outline"></ion-icon>
+                  <ion-icon [hidden]="!showPassword" name="eye-outline"></ion-icon>
+                </button>
+              </div>
+              <ion-input class="input-text medium12" type="{{showPassword ? 'text' : 'password'}}" formControlName="password"
+              required> </ion-input>
+            </ion-item>
+            
+            <div *ngIf="ionicForm.get('password').invalid && (ionicForm.get('password').dirty || ionicForm.get('password').touched)" class="error-message">
+              <span class="error ion-padding regular12" *ngIf="ionicForm.get('password').hasError('required')">Ingrese una contraseña</span>
+              <span class="error ion-padding regular12" *ngIf="ionicForm.get('password').hasError('minlength')">La contraseña debe contener mínimo 4 caracteres</span>
+            </div>
+          </div>
+        </div>
+
+        <ion-col class="sign-in">
+          <button class="black-button"><span class="medium-italic14">I N G R E S A R</span></button>
+        </ion-col>
+      </ion-list>
+    </form>
+    <div id="opciones" class="text-white text-center">
+      <br>
+      <a (click)="redirigirRegistrar()" class="medium-italic12">Crear cuenta</a><br><br>
+      <a (click)="presentModal()" class="medium-italic12">Olvidé de mi contraseña</a>
+
+      <div class="container-omitir">
+        <a (click)="guestSignIn()" class="medium-italic12">Omitir Registro</a>
+      </div>
+  
+    </div>
+
+  </div>
+</ion-content>

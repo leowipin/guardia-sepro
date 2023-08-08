@@ -1,0 +1,130 @@
+ion-content{
+    --background: none;
+    background-image: url("../../assets/bg-rojo3.png");
+    //background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .logo{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+  ion-text{
+    font-family:"hp265";
+  }
+  .img-logo{
+    max-width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+  }
+
+  ion-button{
+    font-family:'hp556';
+    font-weight: 3rem;
+    --background: none;
+    background-color: #3da630;
+    width: 15rem;
+    border-radius: 25rem;
+    margin-top: 10rem;
+    margin-left: 3rem;
+  }
+  .container-omitir{
+    justify-content: space-between;
+    text-align:center;
+    margin-top: 5%;
+    font-size: 0.7rem;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  .datos{
+
+    .itemdatos{
+        margin-top: 10%;
+        max-width: 75%;
+        display: block;
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  .align-text{
+    padding-left: 18px;
+    color: rgb(219, 219, 219);
+  }
+  .field{
+    margin-top: 0.8rem;
+  }
+  .error{
+    font-size: 0.6rem;
+    color: white;
+  }
+  
+
+  .item-background-color{
+    --ion-item-background:transparent;
+  }
+  ion-input {
+    background-color: #ffffff;
+    //border-radius: 25rem;
+    text-align: center;
+  }
+
+  .sign-in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  ion-label{
+    justify-content: space-between;
+    text-align:center;
+    color: #ffffff;
+    font-family:'hp265';
+    font-size: 1.1rem;
+  }
+
+.btn-eye{
+  display: flex;
+  zoom:1.8;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+}
+
+#ico-mail{
+  margin-left: 10px;
+  zoom: 1.5;
+}
+
+#lbl-pagina{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.eye-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 50%; 
+  transform: translateY(-50%); 
+  z-index: 10;
+}
+
+.mail-wrapper {
+  position: absolute;
+  left: 1px;
+  top: 50%; 
+  transform: translateY(-40%); 
+  z-index: 10;
+}
+
+.input-text {
+  color: black;
+}

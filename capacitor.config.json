@@ -1,0 +1,6 @@
+{
+  "appId": "io.empleado.sepro",
+  "appName": "Seproamerica empleado",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

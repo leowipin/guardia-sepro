@@ -1,0 +1,138 @@
+ion-grid.main-grid {
+  height: 100%;
+}
+
+ion-row.service-name, ion-row.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-row.service-name {
+  height: 30%;
+}
+
+ion-row.picture {
+  position: relative;
+  height: 70%;
+}
+
+ion-grid.service-head {
+  height: 30%;
+}
+
+ion-grid.info-grid, ion-grid.input-data {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+ion-grid.input-data {
+  width: 80%;
+  margin-bottom: 2%;
+  background-color: white;
+  border: 0.1px solid rgb(189, 189, 189);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+ion-row.input, ion-row.map, ion-row.spinner, ion-row.checkb, ion-row.request {
+    height:30px;
+    width:92%;
+    margin-top:5%;
+}
+
+ion-row.input {
+    height:45px;
+}
+
+ion-row.request {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:2%;
+}
+
+ion-datetime {
+    height:auto;
+    width:auto;
+}
+
+ion-modal {
+    --width:290px;
+    --height:460px;
+    --border-radius:8px;
+}
+
+ion-modal ion-datetime {
+    height:460px;
+}
+
+#open-modal, #open-modal7, #open-modal8, #open-modal9 {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:100%;
+}
+
+#open-date-input, #open-date-input7, #open-date-input8, #open-date-input9 {
+    display:flex;
+    justify-content:end;
+    align-items:center;
+    background-color:#EFEFEF;
+    height:100%;
+    border-radius:2px;
+}
+
+.calendar-icon {
+    margin-right:2%;
+    margin-left:30%;
+    font-size:22px;
+    color:#9d9d9d;
+}
+
+.horaval {
+   --width :290px ;
+   --height :200px ;
+   font-weight :500 ;
+}
+
+.map,
+.spinner,
+.checkb{
+   display:flex ;
+   align-items:center ;
+}
+.map-btn{
+   background-color :transparent ;
+   box-shadow :none ;
+}
+.map-img{
+   width :45px ;
+}
+.aumento{
+   color :#0a0db3 ;
+   font-size :25px ;
+}
+.decremento{
+   color :#e70808 ;
+   font-size :25px ;
+}
+.cantidad,
+.cnumber{
+   display:flex ;
+   align-items:center ;
+   justify-content:center ;
+}
+.cnumber{
+   flex-direction :column ;
+}
+.green-button{
+   margin-top :5% ;
+   margin-bottom :4% ;
+}
+.hyf{
+  margin-bottom: 2%;
+}
+.bold14{
+  font-size: 1rem;
+}

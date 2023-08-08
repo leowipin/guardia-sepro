@@ -1,0 +1,111 @@
+/* Estilos generales para ion-grid e ion-row */
+
+ion-grid.main {
+    height: 100%;
+}
+
+ion-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos específicos para cada clase de ion-row */
+ion-row.header {
+    justify-content: center;
+    height: 10%;
+}
+
+ion-row.header span {
+    background-color: #FFDDDD;
+    height: 26px;
+    position: absolute;
+    top: 53px;
+    width: 100%;
+    z-index: -1;
+}
+
+ion-grid.content {
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    height: 100%;
+    width: 80%;
+}
+
+ion-row.header ion-menu-button {
+    position: absolute;
+    left: 30px;
+    top: 8px;
+}
+
+ion-row.header ion-menu-button ion-img{
+    width: 30px;
+}
+
+ion-grid.content .order-row{
+    margin-bottom: 1.3rem;
+}
+
+ion-row.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6%;
+    margin-top: 3%;
+}
+
+ion-row .order-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border: 0.1px solid rgb(189, 189, 189);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    border: none;
+    height: 6rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    position: relative;
+}
+
+ion-row .order-pill .order-name{
+    color:#262626;
+    margin-top: 3px;
+}
+
+ion-row .order-pill .order-status{
+    margin-top: 5px;
+    padding: 2px 4px;
+}
+
+ion-row .order-pill .order-date{
+    font-size: 0.6rem;
+    position: absolute;
+    left: 7px;
+    top: 7px;
+}
+
+ion-row .order-pill .details{
+    font-size: 0.6rem;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+ion-row .empty-cart{
+    color:#262626;
+    font-size: 1.2rem;
+    font-family:hp556;
+}
+
+.subline{
+    padding: 4px 40px 4px 40px;
+    border-bottom-style: solid;
+    border-color: rgb(184, 0, 0);
+ }
+

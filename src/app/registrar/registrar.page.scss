@@ -1,0 +1,108 @@
+ion-row.head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 4%;
+}
+
+ion-grid.info-grid, ion-grid.input-data {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+ion-grid.input-data {
+  width: 80%;
+  margin-bottom: 2%;
+  background-color: white;
+  border: 0.1px solid rgb(189, 189, 189);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+ion-row.input{
+  height:30px;
+  width:92%;
+  margin-top:8%;
+}
+
+ion-row.input {
+  height:70px;
+}
+
+.input ion-item{
+  border-radius: 2px ;
+    --border-color: #3a75af;
+      --ion-background-color: #e1e1e1;
+      width: 100%;
+}
+
+.email-input{
+  width: 100%;
+}
+
+.lbl{
+  margin-bottom: 1%;
+}
+
+.error{
+  font-family:'LemonMilkLightItalic';
+  font-size: 0.6rem;
+}
+
+ion-row.dat-btng{
+  margin-top: 10%;
+  margin-bottom: 2%;
+}
+
+.error-message{
+  color: rgb(184, 0, 0);;
+}
+
+.btn-eye{
+  display: flex;
+  zoom:1.8;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+}
+
+.eye-wrapper {
+  position: absolute;
+  right: 10px;
+  top: 50%; 
+  transform: translateY(-50%); 
+  //transform: translateX(100%);
+  z-index: 10;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-terminos{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ion-row.row-terms{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.container-terminos ion-label{
+  font-size: 10px;
+}
+
+.container-terminos span{
+  font-size: 10px;
+  padding-right: 5px;
+}

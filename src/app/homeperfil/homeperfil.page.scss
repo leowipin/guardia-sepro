@@ -1,0 +1,127 @@
+ion-grid.main-grid{
+    height: 100%;
+}
+
+ion-grid.welcome-grid{
+    height: 30%;
+}
+
+ion-grid.option-grid{
+    //background-color: gray;
+    display: flex;
+    align-items: center;
+    //justify-content: center;
+    flex-direction: column;
+    height: 70%;
+}
+
+ion-row.welcome{
+    //background-color: yellow;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+ion-row.picture{
+    //background-color: blueviolet;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+ion-img.frame{
+    bottom: -10px;
+    width: 25vh;
+    height: 125%;
+    z-index: 100;
+    position: absolute;
+}
+
+
+ion-img.back-img{
+    width: 13.3vh;
+    height: 99%;
+    margin-top: 3%;
+    margin-left: 2%;
+    mask-image: url(../../assets/img/corona_dentro.png);
+    mask-size: 100% 100%;
+    background-position: center;
+    background-size: 100% 100%;
+   
+}
+
+
+
+ion-row.select-s{
+    //background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+    margin-bottom: 2%;
+}
+
+ion-row.option-card {
+    height: 21%;
+    margin-bottom: 4%;
+    width: 81%;
+    border: 0.1px solid rgb(189, 189, 189);
+    background-color: WHITE;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+.option-body{
+    display: flex;
+    //justify-content:space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.option-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    margin-left: 4%;    
+}
+
+.option-img{
+    //background-image: ;
+    height: 50px;
+    width: 50px;
+}
+
+.option-name{
+    display: flex;
+    align-items: center;
+    width: 65%;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 0.7rem;
+}
+
+.continue{
+    position: absolute;
+    right: 35px;
+}
+.continue ion-img{
+    width: 45px;
+    height: 45px;
+    
+}
+
+.cont-imgs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 150px;
+    position: relative;
+}
