@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClienteWAService } from '../login-registro/login-registro.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../src/environments/environment';
 import { CardData } from '../interfaces/client/cardData';
 import { NavController } from '@ionic/angular';
 

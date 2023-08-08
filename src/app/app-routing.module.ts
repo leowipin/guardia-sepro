@@ -70,7 +70,7 @@ const routes: Routes = [
   {
     path: 'item1-modal',
     loadChildren: () => import('./item1-modal/item1-modal.module').then( m => m.Item1ModalPageModule)
-    
+
   },
   {
     path: 'sucursal',
@@ -111,7 +111,8 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'pedido-detalle',
     loadChildren: () => import('./pedido-detalle/pedido-detalle.module').then( m => m.PedidoDetallePageModule)
   },

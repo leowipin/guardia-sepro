@@ -29,10 +29,10 @@ export class AppComponent implements AfterViewInit {
   recibido: any;
   nombreur: any;
   apellidour: any;
-  private unsubscribe: Subscription;
   isPushNotification:boolean = false;
   uid:any;
   photo:string;
+  private unsubscribe: Subscription;
 
   constructor(private route: ActivatedRoute, private navCtrl: NavController, 
     private clienteWAService: ClienteWAService, private userDataService: UserDataService, private db: AngularFirestore, 
@@ -52,6 +52,7 @@ export class AppComponent implements AfterViewInit {
     });
    }
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering, @typescript-eslint/ban-types
   myDate: String = new Date().toISOString();
 
   ngAfterViewInit(){
@@ -92,9 +93,9 @@ export class AppComponent implements AfterViewInit {
       }
     });
   }
-  
+
   updateDocumentNotifications(userRef: AngularFirestoreDocument<any>, notifications: any[]) {
-    console.log("se actualiza")
+    console.log('se actualiza');
     userRef.update({ notifications });
   }
 
@@ -104,13 +105,10 @@ export class AppComponent implements AfterViewInit {
         const data = docSnapshot.data();
         if (data && data.notifications && data.notifications.length != 0) {
           this.updateDocumentNotifications(userRef, notifications);
-          
         }
       } else {}
     });
   }
-  
-
 
   ngOnInit() {
     this.getProfilePicture();
@@ -118,12 +116,11 @@ export class AppComponent implements AfterViewInit {
     if (token) {
       this.navCtrl.navigateRoot('tabs');
     } else{
-      this.navCtrl.navigateRoot('login')
+      this.navCtrl.navigateRoot('login');
     }
     // Actualizar detalles del usuario en el menú de hamburguesas
     //this.initPushNotifications();
     this.actualizarUsuario();
-    
     /*if(token){
       this.initFirestoreDocument();
     }*/
@@ -140,7 +137,7 @@ export class AppComponent implements AfterViewInit {
     this.updateDocumentIfItExists(userRef, []);
     this.listenForNotifications();
   }
-  
+
   actualizarUsuario() {
     // Recuperar token del LocalStorage
     const token = localStorage.getItem('token');
@@ -167,7 +164,7 @@ export class AppComponent implements AfterViewInit {
       );
     } else {
       // Si el token no está presente en el LocalStorage, mostrar el menú de hamburguesas con el nombre y apellido por defecto
-      this.nombreur = "Nombre";
+      this.nombreur = "Nombre ";
       this.apellidour = "Apellido";
     }
   }
