@@ -153,8 +153,8 @@ export class AppComponent implements AfterViewInit {
         (response) => {
           // Actualizar detalles del usuario en el menú de hamburguesas
           //this.nombreur = response.first_name;
-          this.userDataService.updateNombreur(response.first_name)
-          this.userDataService.updateApellidour(response.last_name)
+          this.userDataService.updateNombreur(response.first_name);
+          this.userDataService.updateApellidour(response.last_name);
           //this.apellidour = response.last_name;
         },
         (error) => {
@@ -164,8 +164,8 @@ export class AppComponent implements AfterViewInit {
       );
     } else {
       // Si el token no está presente en el LocalStorage, mostrar el menú de hamburguesas con el nombre y apellido por defecto
-      this.nombreur = "Nombre ";
-      this.apellidour = "Apellido";
+      this.nombreur = 'Nombre ';
+      this.apellidour = 'Apellido';
     }
   }
 
@@ -186,16 +186,16 @@ export class AppComponent implements AfterViewInit {
       PushNotifications.addListener('registration', (token: Token) => {
         this.userDataService.updateTokenfcm(token.value);
       });
-  
+
       PushNotifications.addListener('registrationError', (error: any) => {
       });
-  
+
       PushNotifications.addListener(
         'pushNotificationReceived',
         (notification: PushNotificationSchema) => {
         },
       );
-  
+
       PushNotifications.addListener(
         'pushNotificationActionPerformed',
         (notification: ActionPerformed) => {
@@ -210,7 +210,7 @@ export class AppComponent implements AfterViewInit {
       );
       listenerAdded = true;
     }
-    
+
   }
 
   openModal(title:string, message:string, url_img:string|null) { //bootstrap modal

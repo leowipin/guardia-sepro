@@ -25,6 +25,7 @@ import { MyModalComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent, MyModalComponent],
   entryComponents: [],
+  // eslint-disable-next-line max-len
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,ReactiveFormsModule, AngularFireAuthModule, AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase), HttpClientModule, NgbModule],
   providers: [BarcodeScanner, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera, ClienteWAService],

@@ -44,10 +44,12 @@ export class ClienteWAService {
   PAYMENTEZ_DEV_URL:string =  "https://ccapi-stg.paymentez.com/v2/";
   paymentez = environment.paymentez
 
+  
+
   constructor(private http: HttpClient, private navCtrl: NavController, private alertController: AlertController,) { }
 
   signin(data: SignIn): Observable<SignInResponse>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/clientSignin/';
+    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/phoneAccountSignin/';
     return this.http.post<SignInResponse>(endpoint, data).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);

@@ -113,6 +113,10 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
+    path: 'solicitudes',
+    loadChildren: () => import('./solicitudes/solicitudes.module').then(m => m.SolicitudesPageModule)
+  },
+  {
     path: 'pedido-detalle',
     loadChildren: () => import('./pedido-detalle/pedido-detalle.module').then( m => m.PedidoDetallePageModule)
   },
