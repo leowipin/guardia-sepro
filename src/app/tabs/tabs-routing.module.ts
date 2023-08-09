@@ -10,8 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'inicio',
-        loadChildren: () =>
-          import('../servicios-empresa/servicios-empresa.module').then((m) => m.ServiciosEmpresaPageModule),
+        loadChildren: () => import('../solicitudes/solicitudes.module').then(m => m.SolicitudesPageModule)
       },
       {
         path: 'perfil',

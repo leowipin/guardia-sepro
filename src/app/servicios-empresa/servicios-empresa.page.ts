@@ -10,11 +10,11 @@ import { UserDataService } from '../login-registro/userDataService';
 })
 export class ServiciosEmpresaPage implements OnInit {
 
-  servicesNamesList:any;
-  noti:any;
-  photo:string;
+  servicesNamesList: any;
+  noti: any;
+  photo: string;
 
-  constructor(private clienteWAService: ClienteWAService, private alertController: AlertController, 
+  constructor(private clienteWAService: ClienteWAService, private alertController: AlertController,
     private userDataService: UserDataService,) {
       this.userDataService.photo$.subscribe(photo => {
         this.photo = photo;
@@ -22,21 +22,22 @@ export class ServiciosEmpresaPage implements OnInit {
    }
 
   ngOnInit() {
-    this.getNames()
+    this.getNames();
   }
 
   getNames(){
     const token = localStorage.getItem('token');
     this.clienteWAService.getServicesName(token).subscribe({
       next: (response) => {
+        console.log(response);
         this.servicesNamesList = response;
       },
       error: (error) => {
         this.alertController.create({
           header:'Servicios',
-          message: "Error al cargar servicios",
+          message: 'Error al cargar servicios',
           buttons: ['Aceptar']
-        }).then(alert=> alert.present())
+        }).then(alert=> alert.present());
       }
     });
   }

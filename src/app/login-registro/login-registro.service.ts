@@ -40,7 +40,7 @@ export class ClienteWAService {
   /*Url del servidor */
   DJANGO_DOMAIN_NAME:string = 'https://seproamerica2022.pythonanywhere.com/'; //https://seproamerica2022.pythonanywhere.com/
   //DJANGO_TEST_DOMAIN_NAME:string = 'http://127.0.0.1:8000/'
-  PAYMENTEZ_PROD_URL:string = "https://ccapi.paymentez.com/v2/"
+  PAYMENTEZ_PROD_URL:string = "https://ccapi.paymentez.com/v2/";
   PAYMENTEZ_DEV_URL:string =  "https://ccapi-stg.paymentez.com/v2/";
   paymentez = environment.paymentez
 
@@ -49,7 +49,7 @@ export class ClienteWAService {
   constructor(private http: HttpClient, private navCtrl: NavController, private alertController: AlertController,) { }
 
   signin(data: SignIn): Observable<SignInResponse>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/phoneAccountSignin/';
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/phoneAccountSignin/';
     return this.http.post<SignInResponse>(endpoint, data).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
@@ -63,23 +63,35 @@ export class ClienteWAService {
     );
   }
 
-  signup(data:SignUp): Observable<SignUpResponse>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/signup/';
-    return this.http.post<SignUpResponse>(endpoint, data)
+  getAccountName(token: string): Observable<Names>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/clientNames/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<Names>(endpoint, { headers });
   }
 
-  sendResetPasswordEmail(data:ClientEmail): Observable<MessageResponse>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/passwordReset/';
+  getAssignedList(token: string): Observable<any>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'services/phoneAccountOrdersList/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<any>(endpoint, { headers });
+  }
+
+  signup(data:SignUp): Observable<SignUpResponse>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/signup/';
+    return this.http.post<SignUpResponse>(endpoint, data);
+  }
+
+  sendResetPasswordEmail(data: ClientEmail): Observable<MessageResponse>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/passwordReset/';
     return this.http.post<MessageResponse>(endpoint, data)
   }
 
-  changePassword(data:ResetPasswordToken): Observable<MessageResponse>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/changePassword/';
+  changePassword(data: ResetPasswordToken): Observable<MessageResponse>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/changePassword/';
     return this.http.post<MessageResponse>(endpoint, data)
   }
 
   getNames(token:string): Observable<Names>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+'users/clientNames/';
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/clientNames/';
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return this.http.get<Names>(endpoint, { headers: headers })
   }
