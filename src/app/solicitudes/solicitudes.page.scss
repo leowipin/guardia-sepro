@@ -1,140 +1,123 @@
-ion-grid.main-grid{
+/* Estilos generales para ion-grid e ion-row */
+
+ion-grid.main {
   height: 100%;
 }
 
-ion-grid.welcome-grid{
-  height: 30%;
-}
-
-ion-grid.service-grid{
-  //background-color: gray;
+ion-row {
   display: flex;
-  align-items: center;
-  //justify-content: center;
   flex-direction: column;
-  gap: 1rem;
-  height: 70%;
-  margin: 2rem;
-}
-
-ion-row.welcome{
-  //background-color: yellow;
-  height: 30%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  
-}
-
-ion-row.picture{
-  //background-color: blueviolet;
-  height: 70%;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  
 }
 
-ion-img.frame{
-  bottom: -10px;
-  width: 25vh;
-  height: 125%;
-  z-index: 100;
+/* Estilos específicos para cada clase de ion-row */
+ion-row.header {
+  justify-content: center;
+  height: 10%;
+}
+
+ion-row.header span {
+  background-color: #FFDDDD;
+  height: 26px;
   position: absolute;
-}
-
-
-ion-img.back-img{
-  width: 13.3vh;
-  height: 99%;
-  margin-top: 3%;
-  margin-left: 2%;
-  mask-image: url(../../assets/img/corona_dentro.png);
-  mask-size: 100% 100%;
-  background-position: center;
-  background-size: 100% 100%;
- 
-}
-
-
-
-ion-row.select-s{
-  //background-color: brown;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 12%;
-}
-
-ion-row.service-card {
-  height: auto;
-  margin-bottom: 4%;
-  width: 91%;
-  border: 0.1px solid rgb(189, 189, 189);
-  background-color: WHITE;
-  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
-  border-radius: 0.5rem;
-}
-
-.service-body{
-  display: flex;
-  //justify-content:space-around;
-  align-items: center;
+  top: 53px;
   width: 100%;
+  z-index: -1;
 }
 
-.service-icon{
+ion-grid.content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  //align-items: center;
   height: 100%;
-  width: 25%;    
+  width: 80%;
 }
 
-.service-img{
-  //background-image: ;
-  height: 50px;
-  width: 50px;
-}
-
-.service-name{
-  display: flex;
-  align-items: center;
-  width: 65%;
-  height: 100%;
-  overflow: hidden;
-  word-wrap: break-word;
-  word-break: break-all;
-  font-size: 0.7rem;
-}
-
-.continue{
+ion-row.header ion-menu-button {
   position: absolute;
-  right: 35px;
-}
-.continue ion-img{
-  width: 45px;
-  height: 45px;
-  
+  left: 30px;
+  top: 8px;
 }
 
-.cont-imgs{
+ion-row.header ion-menu-button ion-img{
+  width: 30px;
+}
+
+ion-grid.content .order-row{
+  margin-bottom: 1.3rem;
+}
+
+ion-row.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+
+ion-row .order-pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 150px;
+  flex-direction: column;
+  background-color: white;
+  border: 0.1px solid rgb(189, 189, 189);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+  border-radius: 2px;
+  border: none;
+  height: 6rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
   position: relative;
 }
 
-.button-format{
-  background-color: #3da631; 
-  padding: 0.5rem; 
-  color: white; 
-  border-radius: 0.25rem; 
-  padding-left: 0.5rem; 
-  padding-right: 0.5rem; 
-  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
-  font-size: medium;
-  font-weight: bolder;
+ion-row .order-pill .order-name{
+  color:#262626;
+  margin-top: 3px;
 }
+
+ion-row .order-pill .order-status{
+  margin-top: 5px;
+  padding: 2px 4px;
+}
+
+ion-row .order-pill .order-date{
+  font-size: 0.6rem;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+ion-row .order-pill .details{
+  font-size: 0.6rem;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+}
+
+ion-row .empty-cart{
+  color:#262626;
+  font-size: 1.2rem;
+  font-family:hp556;
+}
+
+.subline{
+  padding: 4px 40px 4px 40px;
+  border-bottom-style: solid;
+  border-color: rgb(184, 0, 0);
+}
+ .total{
+  position: absolute;
+  height: 30px;
+  width: 60px;
+  bottom: 6.5px;
+  right: 6.5px;
+  background-color: rgb(0, 172, 52);
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }

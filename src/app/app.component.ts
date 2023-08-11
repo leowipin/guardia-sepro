@@ -154,7 +154,6 @@ export class AppComponent implements AfterViewInit {
           // Actualizar detalles del usuario en el menú de hamburguesas
           //this.nombreur = response.first_name;
           this.userDataService.updateNombreur(response.first_name);
-          this.userDataService.updateApellidour(response.last_name);
           //this.apellidour = response.last_name;
         },
         (error) => {
@@ -228,7 +227,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   async getProfilePicture(){
-    this.getUid();
+    /*this.getUid();
     const filePath = `profilePictures/${this.uid}`;
     const fileRef = this.storage.ref(filePath);
     try {
@@ -237,7 +236,9 @@ export class AppComponent implements AfterViewInit {
     } catch (error) {
       this.photo = 'assets/img/backcliente.png';
       this.userDataService.updatePhoto(this.photo)
-    }
+    }*/
+    this.photo = 'assets/img/backcliente.png';
+    this.userDataService.updatePhoto(this.photo)
   }
 
   getUid(){

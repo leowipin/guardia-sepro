@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <ion-img class="back-arrow" src="assets/img/icono-para-atras.png" routerLink="/tabs/inicio"> </ion-img>
+      <ion-img class="logosepro" src="assets/img/logosepro.png"> </ion-img>
+      <div class="line"></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="main-c">
+  <ion-grid class="main-grid" *ngIf="orderData">
+    <ion-grid class="detail-head">
+      <ion-row class="detail-name bold14">{{orderData.service_name}}</ion-row>
+      <ion-row class="pictureGuard">
+        <div class="cont-imgs">
+          <ion-img src="assets/img/para_foto.png" class="frame"></ion-img>
+          <ion-img class="back-img" [ngStyle]="{'background-image': 'url(' + photo + ')'}"> *ngIf="photo"></ion-img>
+        </div>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="detail-grid">
+      <ion-grid class="detail-name-grid" *ngIf="leaderData">
+        <ion-row class="medium12 subline">Empleado líder</ion-row>
+        <ion-row class="medium12 secu">{{leaderData.first_name}} {{leaderData.last_name}}</ion-row>
+      </ion-grid>
+      <ion-grid class="detail-data-grid">
+        <ion-grid class="amount-grid">
+          <ion-row class="medium12 subline">Datos del servicio</ion-row>
+          <ion-row class="medium12 amount-cont">Total: <span class="regular12">&nbsp;{{total}} dólares</span></ion-row>
+        </ion-grid>
+        <ion-grid class="data-grid">
+          <ion-row class="medium12 dat">Fecha de inicio: <span class="regular12">&nbsp;{{orderData.start_date}}</span></ion-row>
+          <ion-row class="medium12 dat">Hora de inicio: <span class="regular12">&nbsp;{{orderData.start_time}}</span></ion-row>
+          <ion-row class="medium12 dat" *ngIf="!requires_origin_and_destination">Fecha de finalización <span class="regular12">&nbsp;{{orderData.end_date}}</span></ion-row>
+          <ion-row class="medium12 dat" *ngIf="!requires_origin_and_destination">Hora de finalización: <span class="regular12">&nbsp;{{orderData.end_time}}</span></ion-row>
+          <ion-row class="medium12 dat" *ngIf="!requires_origin_and_destination">Duración: <span class="regular12">&nbsp;{{formattedDuration}}</span></ion-row>
+          <ion-row class="medium12 dat">Cliente: <span class="regular12">&nbsp;{{orderData.client_first_name}} {{orderData.client_last_name}}</span></ion-row>
+          <ion-row class="medium12 dat">Teléfono: <span class="regular12">&nbsp;{{orderData.client_phone_number}}</span></ion-row>
+          <ion-row class="medium12 dat" *ngIf="!requires_origin_and_destination"><button type="button" class="map-btn" (click)="verUbicacion()"><ion-img src="assets/img/mapa.png" class="map-img"></ion-img></button></ion-row>
+          <ion-row class="medium12 dat" *ngIf="requires_origin_and_destination"><button type="button" class="map-btn" (click)="dibujarRuta()"><ion-img src="assets/img/mapa.png" class="map-img"></ion-img></button></ion-row>
+        </ion-grid>
+        <ion-row class="dat-btng"><button class="red-button" *ngIf="status=='en proceso'" (click)="endOrder()"><span class="medium12">Finalizar</span></button></ion-row>
+        <ion-row class="dat-btnr"><button class="green-button" *ngIf="status=='pagado'" (click)="startOrder()"><span class="medium12">Iniciar</span></button></ion-row>
+      </ion-grid>
+    </ion-grid>
+  </ion-grid>
+</ion-content>

@@ -11,69 +11,27 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="main-grid">
-    <ion-grid class="welcome-grid">
-      <ion-row class="welcome bold14">¡Bienvenido!</ion-row>
-      <ion-row class="picture">
-        <div class="cont-imgs">
-          <ion-img src="assets/img/para_foto.png" class="frame"></ion-img>
-          <ion-img class="back-img" [ngStyle]="{'background-image': 'url(' + photo + ')'}"> *ngIf="photo"></ion-img>
-        </div>
-        
+  <ion-grid class="main">
+    <ion-grid class="content">
+      <ion-row class="title bold16">
+        Solicitudes
       </ion-row>
-    </ion-grid>
-    
-    <ion-grid class="service-grid">
-      <ion-row class="select-s bold14">
-        Servicios asignados
-      </ion-row>
-      <ng-container *ngFor="let solicitud of solicitudesList; let i = index" >
-        <ion-row class="service-card" > <!--[routerLink]="['servicio-detalle', service.id]"-->
-
-          <div style="display: flex; flex-direction: column; padding-left: 1rem; margin-bottom: 0.5rem;" >
-            <div style="display: flex; gap: 40vh; font-weight: bolder;">
-              <p style="align-self: baseline;">fecha: {{solicitud.start_date}}</p>
-              <p style="align-self:center;">hora: {{solicitud.start_time}} </p>
-
+      <ng-container *ngIf="solicitudesList">
+        <ng-container *ngFor="let item of solicitudesList">
+          <ion-row class="order-row" *ngIf="item.status == 'pagado' || item.status == 'en proceso'">
+            <div class="order-pill" (click)="goToDetail(item.id, item.status)"><!--(click)="goToPedido(item.id, item.service_name, item.requires_origin_and_destination, item.status)"-->
+              <ion-label class="order-name subline bold14">{{ item.service_name }}</ion-label>
+              <ion-label class="order-status bold14" [ngStyle]="{'background-color': item.status === 'pagado' ? '#2ede21' : item.status === 'en proceso' ? '#616bff' : item.status === 'reembolsado' ? '#fa3737' : '#a8a8a8' }">{{ item.status }}</ion-label>
+              <!--<ion-label class="order-status bold14" [ngStyle]="{'background-color': item.status === 'aceptado' ? '#2ede21' : item.status === 'pendiente' ? '#f5c802' : '#a8a8a8'}">{{ item.status }}</ion-label>-->
+              <ion-label class="order-date regular12">{{ item.start_date}}</ion-label>
+              <ion-label class="details regular12">{{ item.start_time}}</ion-label>
+              <div class="total medium12">
+                ${{item.total}}
+              </div>
             </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-              <p style="font-weight: bold; font-size: larger;">
-                {{solicitud.service_name}}
-              </p>
-
-              <p style="font-weight: bolder; color: #bf1a24; font-size: large;">
-                ${{solicitud.total}}
-              </p>
-
-
-              <button class="button-format">Aceptar</button>
-
-            </div>
-
-            <div style="display: flex; flex-direction: column; align-items: end;">
-              <p style="font-weight: bolder; color: #4a7edd;">
-                ver detalles
-              </p>
-
-            </div>
-          </div>
-          <!-- <div class="service-body">
-            <div class="service-icon">
-              <ion-img [src]="'assets/img/' + service.name + '.png'" class="service-img"></ion-img>
-            </div>
-            <div class="service-name bold14">
-              {{solicitud.service_name}}
-
-            </div>
-            <div class="continue">
-              <ion-img *ngIf="i % 2 === 0" src="assets/img/seguir_rojo.png"></ion-img>
-              <ion-img *ngIf="i % 2 === 1" src="assets/img/seguir_azul.png"></ion-img>
-            </div>
-          </div> -->
-        </ion-row>
+          </ion-row>
+        </ng-container>
       </ng-container>
-      
     </ion-grid>
-
   </ion-grid>
 </ion-content>

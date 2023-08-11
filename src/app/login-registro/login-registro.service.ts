@@ -29,6 +29,8 @@ import { LeaderStaffData } from "src/app/interfaces/client/leaderStaff";
 import { catchError} from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AlertController, NavController } from "@ionic/angular";
+import { AccName } from "../interfaces/client/accName";
+import { AccOrderData } from "../interfaces/client/accOrderData";
 
 
 
@@ -48,7 +50,9 @@ export class ClienteWAService {
 
   constructor(private http: HttpClient, private navCtrl: NavController, private alertController: AlertController,) { }
 
+  //EMPLEADO
   signin(data: SignIn): Observable<SignInResponse>{
+    console.log("singnin")
     const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/phoneAccountSignin/';
     return this.http.post<SignInResponse>(endpoint, data).pipe(
       tap(response => {
@@ -61,6 +65,42 @@ export class ClienteWAService {
         }
       }),
     );
+  }
+
+  
+  //EMPLEADO
+  getNames(token:string): Observable<AccName>{
+    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/phoneName/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<AccName>(endpoint, { headers: headers })
+  }
+
+  //EMPLEADO
+  getOrderDetail(token:string, id:string): Observable<AccOrderData>{
+    const endpoint:string = this.DJANGO_DOMAIN_NAME+`services/phoneAccountOrder/?id=${id}`;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<AccOrderData>(endpoint, { headers: headers })
+  }
+  
+  //EMPLEADO
+  getLeaderStaff(token:string, order:string): Observable<LeaderStaffData>{
+    const endpoint:string = this.DJANGO_DOMAIN_NAME+`services/leaderStaff/?id=${order}`;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<LeaderStaffData>(endpoint, { headers: headers })
+  }
+
+  //EMPLEADO
+  startOrder(token:string, id:string): Observable<MessageResponse>{
+    const endpoint:string = this.DJANGO_DOMAIN_NAME+`services/startOrder/?id=${id}`;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.put<MessageResponse>(endpoint, {status:status}, { headers: headers })
+  }
+
+  //EMPLEADO
+  endOrder(token:string, id:string): Observable<MessageResponse>{
+    const endpoint:string = this.DJANGO_DOMAIN_NAME+`services/endOrder/?id=${id}`;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.put<MessageResponse>(endpoint, {status:status}, { headers: headers })
   }
 
   getAccountName(token: string): Observable<Names>{
@@ -88,12 +128,6 @@ export class ClienteWAService {
   changePassword(data: ResetPasswordToken): Observable<MessageResponse>{
     const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/changePassword/';
     return this.http.post<MessageResponse>(endpoint, data)
-  }
-
-  getNames(token:string): Observable<Names>{
-    const endpoint: string = this.DJANGO_DOMAIN_NAME+'users/clientNames/';
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    return this.http.get<Names>(endpoint, { headers: headers })
   }
 
   getClientData(token:string): Observable<ClientData>{
@@ -279,11 +313,7 @@ export class ClienteWAService {
     return this.http.delete<MessageResponse>(endpoint, { headers: headers })
   }
 
-  getLeaderStaff(token:string, order:string): Observable<LeaderStaffData>{
-    const endpoint:string = this.DJANGO_DOMAIN_NAME+`services/leaderStaff/?id=${order}`;
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    return this.http.get<LeaderStaffData>(endpoint, { headers: headers })
-  }
+ 
 
   sendMessage(token:string, message:string): Observable<MessageResponse>{
     const endpoint:string = this.DJANGO_DOMAIN_NAME+'messaging/sendMessage/';

@@ -105,6 +105,7 @@ export class LoginPage implements OnInit {
   }
 
   signIn(): void{
+    console.log("sss")
     const data: SignIn = {
       email: this.ionicForm.value.email,
       password: this.ionicForm.value.password,
@@ -112,30 +113,19 @@ export class LoginPage implements OnInit {
     
     this.clienteWAService.signin(data).subscribe({
       next: (response) => {
+        console.log(response)
         this.getProfilePicture();
         const token = localStorage.getItem('token');
-        if(this.tokenfcm !== ""){
-          this.clienteWAService.registerToken(token, this.tokenfcm).subscribe(
-            (response) => {
-              console.log(response)
-            },
-            (error) => {
-              console.log(error)
-            }
-          );
-        }
         this.clienteWAService.getNames(token).subscribe(
           (response) => {
             // Actualizar detalles del usuario en el menú de hamburguesas
             this.userDataService.updateNombreur(response.first_name);
-            this.userDataService.updateApellidour(response.last_name);
           },
           (error) => {
             // Manejar el error de la solicitud HTTP
             console.log(error);
           }
         );
-        this.notificationsService.executeInitFirestoreDocument();
         this.redirigirServicios()
         },
       error: (error) => {
